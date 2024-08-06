@@ -1,0 +1,35 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<link rel="stylesheet" href="/static/css/info.css">
+
+<div class="other-content">
+    <!--Форма заявки на подключение-->
+    <div class="info-content">
+        
+        <div class="img-info">
+            <img src="/static/images/info.png">
+        </div>
+
+        <label class="label-info">Информация</label>
+
+        <div class="other-info">
+            {% for inf in lst %}
+            <div class="info-block">
+                <label class="block-label-info">{{ inf.label }}</label>
+                <span class="block-text-info">{{ inf.info|replace('\n','<br>')|safe }}</span>
+                <div class="block-html-info">{{ inf.url|safe }}</div>
+            </div>
+            {% endfor %}
+        </div>
+
+
+    </div>
+</div>
+
+
+
+
+{% endblock content %}

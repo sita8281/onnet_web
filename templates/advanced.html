@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<link rel="stylesheet" href="/static/css/advanced.css">
+
+<div class="other-content">
+    <div class="container-connect">
+        <div class="connect-baner blue-back">
+            <div class="baner-info">
+                <div class="text-box ">
+                    <span class="baner-label white-font">Дополнительные услуги</span>
+                    <span class="baner-address white-font">Наша компания предоставляет и иные услуги, помимо подключения к интернету</span>
+                    <a class="connect-button" href="/connect">Оставить заявку на подключение</a>
+                </div>
+            </div>
+            <div class="div-adv">
+                <img src="/static/images/internet_adv.png" alt="">
+            </div>
+        </div>
+
+        {% if url_to_internet %}
+        <div class="connect-urls">
+            <div class="connect-urls-box">
+                <a class="connect-url" href="{{ url_to_internet }}">
+                    <img src="/static/images/back.svg">
+                    Вернуться назад
+                </a>
+            </div>
+        </div>
+        {% endif %}
+        
+
+        <div class="connect-info">
+            <div class="connect-info-box">
+                <span class="tarif-label">Список предоставляемых услуг</span>
+            </div>
+
+        </div>
+
+        <div class="adv-box-contain">
+            {% for adv in lst %}
+                <div class="adv-row">
+                    <label class="adv-info">{{ adv.name }}</label>
+                    <label class="adv-price">{{ adv.price }}</label>
+                </div>
+            {% endfor %}
+        </div>
+
+        
+    </div>
+
+
+</div>
+
+
+
+{% endblock content %}

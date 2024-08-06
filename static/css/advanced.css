@@ -1,0 +1,112 @@
+
+.div-adv {
+    margin-top: 70px;
+}
+
+.div-adv img {
+    width: 400px;
+}
+
+.blue-back {
+    background-color: #229FFF
+}
+
+.white-font {
+    color: white;
+}
+
+.connect-button {
+    margin-top: 100px;
+    text-align: center;
+    width: 400px;
+    display: block;
+    text-decoration: none;
+    height: 50px;
+    line-height: 50px;
+    background-color: #CEE800;
+    color: black;
+    border: 1px solid #CEE800;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: 0.2s;
+
+}
+
+.connect-button:hover {
+    background-color: #ffffff;
+    color: black;
+    transition: 0.2s;
+}
+
+.adv-box-contain {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+}
+
+.adv-row {
+    display: flex;
+    border-bottom: 2px solid #f0f0f0;
+    font-size: 20px;
+    height: 40px;
+    line-height: 40px;
+}
+
+.adv-price {
+    margin-left: auto;
+    margin-right: 0px;
+}
+
+@media (max-width: 1250px) {
+    .adv-row {
+        font-size: 16px;
+    }
+}
+
+
+@media (max-width: 1100px) {
+    .div-adv img {
+        width: 280px;
+        margin-top: 50px;
+    }
+}
+
+@media (max-width: 950px) {
+    .div-adv {
+        margin-top: 0px;
+        text-align: center;
+    }
+
+    .div-adv img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .connect-button {
+        margin-top: 50px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 300px;
+    }
+    .white-font {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .adv-row {
+        display: block;
+        height: 100%;
+        line-height: 25px;
+    }
+
+    .adv-info {
+        display: block;
+        font-size: 13px;
+    }
+    .adv-price {
+        display: block;
+        font-weight: bold;
+        font-size: 15px;
+    }
+}

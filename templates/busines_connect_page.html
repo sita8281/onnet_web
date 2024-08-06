@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+
+{% block ya_metric %}
+    {{ data.metrica_html|safe }}
+{% endblock ya_metric %}
+
+{% block meta_tag %}
+    {% if data.header_html %}
+        {{ data.header_html|safe }}
+    {% endif %}
+{% endblock meta_tag %}
+
+
+{% block content %}
+
+<div class="other-content">
+    <div class="container-connect">
+        <div class="connect-baner">
+            <div class="baner-info">
+                <div class="text-box">
+                    <span class="baner-label">{{ templ.label }}</span>
+                    <span class="baner-address">{{ data.name }}</span>
+                    <div class="check-label-box">
+                        <div class="check-label">
+                            <img src="/static/images/check.svg">
+                            <span>{{ templ.check1 }}</span>
+                        </div>
+                        <div class="check-label">
+                            <img src="/static/images/check.svg">
+                            <span>{{ templ.check2 }}</span>
+                        </div>
+                        <div class="check-label">
+                            <img src="/static/images/check.svg">
+                            <span>{{ templ.check3 }}</span>
+                        </div>
+                        <div class="check-label">
+                            <img src="/static/images/check.svg">
+                            <span>{{ templ.check4 }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="baner-picture-home">
+                <img src="/static/images/busines.png" alt="">
+            </div>
+        </div>
+
+        <div class="connect-urls">
+            <div class="connect-urls-box">
+                <a class="connect-url" href="/conditions?url_redirect={{ request.path }}">
+                    <img src="/static/images/info.svg">
+                    Условия подключения
+                </a>
+                <a class="connect-url" href="/advanced?url_redirect={{ request.path }}">
+                    <img src="/static/images/settings.svg">
+                    Дополнительные услуги
+                </a>
+                <a class="connect-url" href="/devices?url_redirect={{ request.path }}">
+                    <img src="/static/images/router.svg">
+                    Оборудование
+                </a>
+            </div>
+                
+        </div>
+
+        <img class="baner-img-business" src="/img_baner_business/{{ data.id }}">
+
+        <div class="connect-info">
+            <div class="connect-info-box">
+                <span class="tarif-label">{{ templ.label_tarif }}</span>
+            </div>
+
+            <span class="info-busines">
+                {{ data.info|replace('\n', '<br>')|safe }}
+            </span>
+        </div>
+            
+
+        <script>
+            function openPopup1(e) {
+                $(e).fadeToggle(400);
+                $('html').css({
+                    overflow: 'hidden',
+                    height: '100%'
+                });
+            };
+        </script>
+        
+    </div>
+
+    <div class="container-connect">
+        <div>
+            <span class="zone-label">{{ templ.label_zone }} {{ data.name }}</span>
+        </div>
+        <div class="zone-map">
+            {{ data.zone_html|safe }}
+        </div>
+        
+        
+    </div>
+
+</div>
+
+
+
+{% endblock content %}

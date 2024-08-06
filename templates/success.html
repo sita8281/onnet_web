@@ -1,0 +1,61 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<style>
+    .success-block {
+        width: 100%;
+        height: 600px;
+        background-color: white;
+    }
+    .success-img {
+        width: 200px; 
+        display: block; 
+        margin-top: 100px; 
+        margin-left: auto; 
+        margin-right: auto;
+    }
+    .success-label {
+        font-size: 35px;
+        display: block; 
+        margin-top: 50px; 
+        margin-left: auto; 
+        margin-right: auto; 
+        text-align: center;
+    }
+    .back-main-page {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        width: 300px;
+        margin-top: 20px;
+        height: 40px;
+        line-height: 40px;
+        background-color: #229fff;
+        border-radius: 25px;
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+
+    }
+
+</style>
+
+<div class="other-content">
+    <!--Форма заявки на подключение-->
+    <div class="statement-connect">
+         <div class="success-block">
+            <img class="success-img" src="/static/images/check2.svg" alt="">
+            <label class="success-label">Заявка принята</label>
+            <a class="back-main-page" href="/">Перейти на главную страницу</a>
+         </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+{% endblock content %}
