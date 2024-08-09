@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <style>
+        .box {
+            width: 100%;
+            text-align: center;
+        }
+
+        .box2 {
+            width: 70%;
+            background-color: rgb(235, 235, 235);
+            margin-top: 20px;
+            margin-left: 20px;
+        }
+
+        a {
+            display: block;
+            margin-top: 10px;
+            font-size: 30px;
+            text-decoration: none;
+            color: rgb(31, 128, 255);
+
+        }
+
+        a:hover {
+            font-weight: bold;
+            text-decoration: underline
+
+        }
+
+    </style>
+    <h1 style="width: 100%; text-align: center;">Изменение телефона, почты, телеги и т.д</h1>
+    <a href="/admin_panel">Вернуться в меню админки</a>
+
+    <div>
+        <form method="post" action="">
+            <div><label>Телефон в поле URL должен быть строго такого формата: +79993331122</label></div>
+
+            <div><label></label></div>
+            
+            {% for data in lst %}
+            
+            <div>
+                <label>{{ data.name }} URL:</label>
+                <input style="margin: 10px;" name="url_{{ data.name }}" type="text" value="{{ data.url }}">
+            </div>
+                
+            {% endfor %}
+            <hr>
+            <div><label>Поля отображения будут видеть пользователи, тут можно писать как угодно</label></div>
+            
+            <div><label></label></div>
+            
+            {% for data in lst %}
+            
+            <div>
+                <label>{{ data.name }}:</label>
+                <input style="margin: 10px;" name="{{ data.name }}" type="text" value="{{ data.view }}">
+            </div>
+                
+            {% endfor %}
+
+            <hr>
+
+            <input type="submit">
+        </form>
+    </div>
+    
+        
+</body>
+</html>

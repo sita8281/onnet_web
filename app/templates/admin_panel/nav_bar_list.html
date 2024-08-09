@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <style>
+        .box {
+            width: 100%;
+            text-align: center;
+        }
+
+        .box2 {
+            width: 70%;
+            background-color: rgb(235, 235, 235);
+            margin-top: 20px;
+            margin-left: 20px;
+        }
+
+        a {
+            display: block;
+            margin-top: 10px;
+            font-size: 30px;
+            text-decoration: none;
+            color: rgb(31, 128, 255);
+
+        }
+
+        a:hover {
+            font-weight: bold;
+            text-decoration: underline
+
+        }
+
+    </style>
+    <h1 style="width: 100%; text-align: center;">Список ссылок NAV-bar</h1>
+    <a href="/admin_panel">Вернуться в меню админки</a>
+    <div style="border: 1px solid; width: 600px;">
+        <form action="/admin_panel/nav/add" method="post">
+            <input type="submit" style="width: 200px; height: 50px; margin: 5px;">
+            {% for nav in lst %}
+            <div style="padding: 10px; margin: 5px; background-color: rgb(255, 244, 222)">
+                <label style="font-weight: bold; font-size: 20px; margin-right: 20px;">#{{ nav.id }}</label>
+                {% if nav.name %}
+                    <div>
+                        <label>Название ссылки:</label>
+                        <input type="text" value="{{ nav.name }}" name="name-{{ nav.id }}">
+                    </div>
+                    <div style="margin-top: 10px;">
+                        <label>Ссылка:</label>
+                        <input type="text" value="{{ nav.url|safe }}" name="url-{{ nav.id }}" style="width: 90%;">
+                    </div>
+                {% else %}
+                    <div>
+                        <label>Название ссылки:</label>
+                        <input type="text" value="" name="name-{{ nav.id }}">
+                    </div>
+                    <div style="margin-top: 10px;">
+                        <label>Ссылка:</label>
+                        <input type="text" value="" name="url-{{ nav.id }}">
+                    </div>
+                {% endif %}
+                
+                
+            </div>
+            {% endfor %}
+        </form>
+        
+    </div>
+    
+        
+</body>
+</html>

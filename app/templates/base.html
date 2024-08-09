@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block meta_tag %}
+    <title>Onnet телеком</title>
+    {% endblock meta_tag %}
+
+    <link rel="icon" type="image/png" sizes="32x32" href="https://onnet.ru/static/images/favicon32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="https://onnet.ru/static/images/favicon16.png" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, target-densityDpi=device-dpi" />
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/internet.css">
+    <link rel="stylesheet" href="/static/css/adv.css">
+    <link rel="stylesheet" href="/static/css/connect_page.css">
+    <link rel="stylesheet" href="/static/css/modals.css">
+    <script src="/static/js/jquery.min.js"></script>
+    {% block ya_metric %}
+    {% endblock ya_metric %}
+</head>
+<body>
+    <!--Шапка сайта-->
+    <div class="nav-main">
+        <div class="nav-content">
+
+            <a class="burger-menu" href="">
+                <img src="/static/images/burger.svg" alt="">
+            </a>
+
+            <div class="nav-logo">
+                <img src="/static/images/logo.png" class="nav-img-logo">
+                <script>
+                    $('.nav-img-logo').click(function() {
+                        window.location.href = "/";
+                    })
+                </script>
+            </div>
+
+            <div class="nav-links">
+                <a href="javascript:openPopup(label='Меню', url='/nav_desktop/list')" class="nav-a">Меню</a>
+                <a href="javascript:openPopup(label='Выберите район',url='/kv/list')" class="nav-a internet-kv">В квартиру</a>
+                <a href="javascript:openPopup(label='Выберите район',url='/home/list')" class="nav-a">В частный дом</a>
+                <a href="javascript:openPopup(label='Выберите район',url='/busines/list')" class="nav-a">Для бизнеса</a>
+                
+            </div>
+            
+            <div class="nav-links-2">
+                <div class="number-phone">
+                    <a href="{{ support[2].url }}" class="messenger"><img src="/static/images/telegram.svg" ></a>
+                    <a href="{{ support[3].url }}" class="messenger"><img src="/static/images/whatsapp.svg" ></a>
+                    <img src="/static/images/phone.svg" class="phone-icon">
+                    <a class="phone-number" href="tel:{{ support[0].url }}">{{ support[0].view }}</a>
+                </div>
+
+
+                <div class="lk-connect">
+                    <a class="connect-link connect-link-state" href="/connect">
+                        <img src="/static/images/connect.svg" class="connect-svg">
+                        Подключиться
+                    </a>
+                    <div class="lk-container">
+                        <img src="/static/images/user.svg" class="user-svg">
+                        <a class="lk-a" href="https://lk.onnet.ru">Личный кабинет</a>
+                    </div>
+                    
+                </div>
+            </div>
+                
+
+
+        </div>
+    </div>
+
+    <!--Заглушка для сдвига контента под шапкой-->
+    <div class="pass-nav"></div>
+
+    <!--Мобильное меню-->
+
+    <script>
+        $(document).ready(function(){
+            $('.burger-menu').click(function(){
+                $('.mobile-menu').slideToggle(400);      
+                return false;
+            });
+        });
+
+        //скрыть мобильное меню, если оно развернуто при большом экране
+        $(window).resize(function(e) {
+            if ($(window).width() > 1100) {
+                $('.mobile-menu').css('display', 'none')
+            }
+        })
+    </script>
+    <div class="mobile-menu">
+        <a class="connect-link" href="/connect">
+            <img src="/static/images/connect.svg" class="connect-svg">
+            Подключиться
+        </a>
+        {% for nav_ in nav %}
+            {% if nav_.name %}
+            <a href="{{ nav_.url|safe }}" class="nav-a internet-kv">{{ nav_.name }}</a>
+            {% endif %}
+        {% endfor %}
+
+        <div class="messengers-box" >
+            <a href=""><img src="/static/images/telegram.svg" style="width: 40px;"></a>
+            <a href=""><img src="/static/images/whatsapp.svg" style="width: 40px;margin-left: 20px;"></a>
+        </div>
+
+    </div>
+
+
+    <!--Окно выбора района-->
+    <div class="popup-window">
+        <div class="window">
+            <div class="top-container">
+                <span id="popup-label-menu" class="label-window"></span>
+                <a class="close-window-btn"><img src="/static/images/cross.svg"></a>
+            </div>
+                
+            <div class="region-list">
+                <div id="regions-list" style="overflow-y: auto; max-height: 100%;">
+
+                </div>
+                
+                
+            </div>
+        </div>
+    </div>
+    <script>
+        $('.close-window-btn').click(function(e) {
+            $('.popup-window').fadeToggle(400);
+            $('html').css({
+                overflow: 'auto',
+                height: 'auto'
+            });
+            $('#popup-label-menu').text('');
+        });
+
+        //загрузить список квартиных ссылок на страницы
+        function openPopup(label, url) {
+            $.ajax({
+                type: "post",
+                url: url,
+                dataType: "json",
+                success: function (response) {
+                    $('#regions-list').html('')
+                    response.forEach(element => {
+                        $(`<a href="${element.url}" class="region-a">${element.name}</a>`).appendTo('#regions-list');
+                    });
+                    $('.popup-window').fadeToggle(400);
+                    $('html').css({
+                        overflow: 'hidden',
+                        height: '100%'
+                    });
+                    $('#popup-label-menu').text(label);
+                }
+            });
+            
+        };
+        $('.popup-window').click(function(e) {
+            if ($(e.target).closest('.window').length == 0) {
+                $('.popup-window').fadeToggle(400);
+                $('html, body').css({
+                overflow: 'auto',
+                height: 'auto'
+                
+            });
+            $('#popup-label-menu').text('');
+            }
+        })
+    </script>
+
+    {% block content %}
+        <div class="other-content">empty</div>
+    {% endblock content %}
+
+
+    <div class="footer">
+        <div class="support">
+            <div style="margin-top: 10px;"><label class="lbl-support">Поддержка</label></div>
+            <div><a class="support-footer" href="tel:{{ support[0].url }}">{{ support[0].view }}</a></div>
+            <div style="margin-top: 10px;"><label class="lbl-support">Электронная почта</label></div>
+            <div><a class="support-footer" href="mailto:{{ support[1].url }}">{{ support[1].view }}</a></div>
+            <div style="margin-top: 10px;">
+                <a href="{{ support[2].url }}" ><img class="messenger-icon" src="/static/images/telegram.svg" ></a>
+                <a href="{{ support[3].url }}" ><img class="messenger-icon" src="/static/images/whatsapp.svg" ></a>
+            </div>
+        </div>
+        <hr style="width: 90%;">
+        <div style="text-align: center; margin-bottom: 20px;">
+            <label class="lbl-footer1">© 2024, Onnet.ru</label>
+            <label class="lbl-footer2">Продолжая использовать наш сайт, вы даете согласие на обработку файлов Cookies и других пользовательских данных, в соответствии с Политикой конфиденциальности и Пользовательским соглашением</label>
+        </div>
+    </div>
+
+
+    <!-- <script>
+        const socket = new WebSocket("ws://10.1.1.2:8765");
+    
+    
+        // Listen for messages
+        socket.addEventListener("message", (event) => {
+        console.log("Message from server ", event.data);
+        location.reload();
+        });
+    </script> -->
+
+
+<!-- simple модальное окно для переиспользования -->
+<div class="back-modal" id="simple-modal-block">
+    <div class="window-modal">
+        <div class="modal-content">
+            <div class="top-container">
+                <span class="label-window" id="span-modal-label">Text</span>
+                <a class="close-window-btn-act" id="close-modal-button">
+                    <img src="/static/images/cross.svg">
+                </a>
+            </div>
+
+                <span id="text-modal-info">...
+                </span>
+
+
+            
+        </div>
+    </div>
+    <script>
+        $('#close-modal-button').click(function(e) {
+            $('#simple-modal-block').fadeToggle(400);
+            $('html, body').css({
+                overflow: 'auto',
+                height: 'auto'
+            });
+        });
+
+        $('#simple-modal-block').click(function(e) {
+            if ($(e.target).closest('.window-modal').length == 0) {
+                $('#simple-modal-block').fadeToggle(400);
+                $('html, body').css({
+                overflow: 'auto',
+                height: 'auto'
+            });
+            }
+        })
+    </script>
+</div>
+    
+</body>
+</html>

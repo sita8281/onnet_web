@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <style>
+        .box {
+            width: 100%;
+            text-align: center;
+        }
+
+        .box2 {
+            width: 70%;
+            background-color: rgb(235, 235, 235);
+            margin-top: 20px;
+            margin-left: 20px;
+        }
+
+        a {
+            display: block;
+            margin-top: 10px;
+            font-size: 30px;
+            text-decoration: none;
+            color: rgb(31, 128, 255);
+
+        }
+
+        a:hover {
+            font-weight: bold;
+            text-decoration: underline
+
+        }
+
+    </style>
+    <h1 style="width: 100%; text-align: center;">Редактирование условий подключения</h1>
+    <h2 style="width: 100%; text-align: center;"></h2>
+    <a href="/admin_panel">Вернуться в меню админки</a>
+    <div style="border: 1px solid; width: 400px;">
+        <form method="post" enctype="multipart/form-data" action="/admin_panel/conditions/add">
+            <div>
+                <label>Заголовок</label>
+                <input style="margin: 10px;" type="text" name="label">
+            </div>
+            <div>
+                <label>Информация</label>
+                <textarea style="margin: 10px; height: 100px; display: block; width: 90%" name="info"></textarea>
+            </div>
+            <button style="margin: 10px;">Добавить</button>
+            
+        </form>
+        
+    </div>
+
+    <div>
+        {% for block in lst %}
+            <h2 style="width: 400px;">{{ block.label }}</h2>
+            <div style="width: 300px;">{{ block.info|replace('\n', '<br>')|safe }}</div>
+            
+            <a style="color: red;" href="/admin_panel/conditions/del/{{ block.id }}">Удалить </a>
+            <hr>
+        {% endfor %}
+    </div>
+    
+        
+</body>
+</html>

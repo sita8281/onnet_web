@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <style>
+        .box {
+            width: 100%;
+            text-align: center;
+        }
+
+        .box2 {
+            width: 70%;
+            background-color: rgb(235, 235, 235);
+            margin-top: 20px;
+            margin-left: 20px;
+        }
+
+        a {
+            display: block;
+            margin-top: 10px;
+            font-size: 30px;
+            text-decoration: none;
+            color: rgb(31, 128, 255);
+
+        }
+
+        a:hover {
+            font-weight: bold;
+            text-decoration: underline
+
+        }
+
+    </style>
+    <h1 style="width: 100%; text-align: center;">Список страниц для чатных домов</h1>
+    <a href="/admin_panel">Вернуться в меню админки</a>
+    <a href="{{ url_for('home_add') }}">Добавить новую страницу</a>
+    <div class="box">
+        {% for home in home_list %}
+            <div class="box2">
+                <h1>{{home.name}}</h1>
+
+                <a href="/home/{{home.base_url}}">/home/{{home.base_url}}</a>
+
+                <label>Header</label>
+                <div><textarea style="width: 500px; height: 130px;">{{ home.header_html }}</textarea></div>
+
+                <label>Код метрики</label>
+                <div><textarea style="width: 500px; height: 130px;">{{ home.metrica_html }}</textarea></div>
+
+                <label>Код карты</label>
+                <div><textarea style="width: 500px; height: 130px;">{{ home.zone_html }}</textarea></div>
+
+                <div>
+                    <h3>Тарифы</h3>
+                    {% for trf in home.tariffs %}
+                        <div style="border: 1px solid; width: 70%; margin-top: 10px; margin-left: 50px;">
+                            
+                            <div style="display: block;">
+                                <label style="font-weight: bold;">Название:</label>{{ trf.name_t }}
+                            </div>
+
+                            <div style="display: block;">
+                                <label style="font-weight: bold;">Цена:</label>{{ trf.price }}
+                            </div>
+
+                            <div style="display: block;">
+                                <label style="font-weight: bold;">Скорость:</label>{{ trf.speed }}
+                            </div>
+
+                            {% if trf.act %}
+                                <div style="display: block;">
+                                    <label style="font-weight: bold;">Акция: Есть</label>
+                                </div>
+                                <div style="display: block;">
+                                    <label style="font-weight: bold;">Инфа по акции:</label>{{ trf.act_info }}
+                                </div>
+                            {% endif %}
+
+                            
+                            
+                        
+                        </div>
+                    {% endfor %}
+                </div>
+
+                <a style="color: brown;" href="/admin_panel/home/del/{{ home.id }}">Удалить страницу</a>
+                <a style="color: rgb(224, 146, 0);" href="/admin_panel/home/update/{{ home.id }}">Изменить страницу</a>
+                
+                
+            </div>
+        {% endfor %}
+    </div>
+        
+</body>
+</html>

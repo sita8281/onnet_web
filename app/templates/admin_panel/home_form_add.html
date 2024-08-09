@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/static/js/jquery.min.js"></script>
+</head>
+<body>
+
+    <style>
+        .box {
+            width: 340px;
+            background-color: aliceblue;
+            border: 2px solid rgb(56, 126, 255);
+            margin-left: auto;
+            margin-right: auto;
+            
+        }
+
+        .inp {
+            width: 90%;
+            display: block;
+
+        }
+        label {
+            display: block;
+        }
+        textarea {
+            height: 100px;
+            width: 90%;
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            text-align: center;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.726);
+        }
+
+        .window {
+            width: 340px;
+            margin-top: 50px;
+            background-color: rgb(255, 255, 255);
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .trf {
+            margin-top: 10px;
+            border: 1px solid;
+        }
+
+        a {
+            display: block;
+            margin-top: 10px;
+            font-size: 30px;
+            color: rgb(31, 128, 255);
+            margin-left: auto;
+
+        }
+
+        
+    </style>
+
+    <a href="/admin_panel">Вернуться в меню админки</a>
+
+    <div class="box">
+        <div><label>Название района</label><input class="inp" type="text" id="name"></div>
+        <div><label>Ссылка</label><input class="inp" type="text" id="url"></div>
+        <div><label>Header</label><textarea id="header"></textarea></div>
+        <div><label>Код метрики</label><textarea id="metric"></textarea></div>
+        <div><label>Код карты зоны покрытия</label><textarea id="zone"></textarea></div>
+        <div>
+            <label>Список тарифов:</label>
+            <div class="tarif">
+                
+            </div>
+            <div><button class="open-popup-btn">Добавить тариф</button></div>
+        </div>
+        
+        
+        
+        
+        <button id="send-form" style="width: 150px; height: 50px; margin-top: 30px; margin-left: 30px; margin-bottom: 30px;">Создать</button>
+    </div>
+
+    <div class="popup">
+        <div class="window">
+            <div><label>Название тарифа</label><input class="inp" type="text" id="name_t"></div>
+            <div><label>Стоимость тарифа</label><input class="inp" type="text" id="price"></div>
+            <div><label>Скорость</label><input class="inp" type="text" id="speed"></div>
+            <div><label>Добавить акцию</label><input type="checkbox" id="act"></div>
+            <div><label>Информация по акции</label><textarea id="act_info"></textarea></div>
+            <div><button id="add_t">Добавиь</button></div>
+        </div>
+    </div>
+
+    <script>
+
+        let tarif_list = [];
+        //кнопка - открыть окно добавления тарифа
+        $('.open-popup-btn').click(function() {
+            $('.popup').css('display', 'block')
+        })
+
+        //кнопка - добвать тариф
+        $('#add_t').click(function() {
+
+            // скрыть окно
+            $('.popup').css('display', 'none');
+            
+            //добавить данные из полей в список тарифов
+            let name_t = $('#name_t').val();
+            let price = $('#price').val();
+            let speed = $('#speed').val();
+            let act = false;
+            if ($('#act').is(':checked')) {
+                act = true;
+            } 
+            let act_info = $('#act_info').val();
+            
+            tarif_list.push(
+                {
+                    name_t: name_t,
+                    price: price,
+                    speed: speed,
+                    act: act,
+                    act_info: act_info
+                }
+            )
+
+            //обнулить все поля
+            $('#name_t').val('');
+            $('#price').val('');
+            $('#speed').val('');
+            $('#act').prop('checked', false);
+            $('#act_info').val('');
+
+            //очистка списка тарифов в html
+            $('.tarif').html('')
+
+            //отображение в html списка всех таривов из массива
+            tarif_list.forEach(element => {
+                console.log(element)
+                let txt = `
+                <div class="trf">
+                    <h4>Название: ${element.name_t}</h4>
+                    <label>Цена: ${element.price}</label>
+                    <label>Скорость: ${element.speed}</label>
+                    <label>Акция: ${element.act}</label>
+                    <label>Инфа по акции: ${element.act_info}</label>
+                </div>
+                `
+                $(txt).appendTo('.tarif');
+            });
+
+        })
+
+        //
+        $('#send-form').click(function() {
+            //отправить форму на backend
+
+            let data = {
+                name: $('#name').val(),
+                url: $('#url').val(),
+                metric: $('#metric').val(),
+                zone: $('#zone').val(),
+                header: $('#header').val(),
+                tarif: tarif_list
+            }
+            $.ajax({
+                type: "post",
+                url: "/admin_panel/home/add",
+                data: JSON.stringify(data),
+                dataType: "text",
+                contentType: "application/json",
+                success: function (response) {
+                    alert(response);
+                    window.location.href = '/admin_panel/home/list'
+                }
+            });
+        })
+
+
+        
+
+    </script>
+</body>
+</html>

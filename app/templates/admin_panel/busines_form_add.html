@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/static/js/jquery.min.js"></script>
+</head>
+<body>
+
+    <style>
+        .box {
+            width: 340px;
+            background-color: aliceblue;
+            border: 2px solid rgb(56, 126, 255);
+            margin-left: auto;
+            margin-right: auto;
+            
+        }
+
+        .inp {
+            width: 90%;
+            display: block;
+
+        }
+        label {
+            display: block;
+        }
+        textarea {
+            height: 100px;
+            width: 90%;
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            text-align: center;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.726);
+        }
+
+        .window {
+            width: 340px;
+            margin-top: 50px;
+            background-color: rgb(255, 255, 255);
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .trf {
+            margin-top: 10px;
+            border: 1px solid;
+        }
+
+        a {
+            display: block;
+            margin-top: 10px;
+            font-size: 30px;
+            color: rgb(31, 128, 255);
+            margin-left: auto;
+
+        }
+
+        
+    </style>
+
+    <a href="/admin_panel">Вернуться в меню админки</a>
+
+    <div class="box">
+        <div><label>Название района</label><input class="inp" type="text" id="name"></div>
+        <div><label>Ссылка</label><input class="inp" type="text" id="url"></div>
+        <div><label>Header</label><textarea id="header"></textarea></div>
+        <div><label>Код метрики</label><textarea id="metric"></textarea></div>
+        <div><label>Код карты зоны покрытия</label><textarea id="zone"></textarea></div>
+        <div><label>Заголовок</label><input class="inp" type="text" id="label"></div>
+        <div><label>Данные по подключению</label><textarea id="info"></textarea></div>
+        <hr>
+        <div><label>Банер акции</label></div>
+        <input style="margin: 10px;" type="file" id="file_" name="file" accept="image/*" />
+        <hr>
+        <button id="send-form" style="width: 150px; height: 50px; margin-top: 30px; margin-left: 30px; margin-bottom: 30px;">Создать</button>
+        
+    </div>
+
+    <script>
+
+        //
+        $('#send-form').click(function() {
+            //отправить форму на backend
+
+            let blobFile = $('#file_').prop('files')[0];
+            let reader = new FileReader();
+            reader.readAsDataURL(blobFile);
+            reader.onload = function() {
+                let data = {
+                name: $('#name').val(),
+                url: $('#url').val(),
+                metric: $('#metric').val(),
+                zone: $('#zone').val(),
+                label: $('#label').val(),
+                info: $('#info').val(),
+                header: $('#header').val(),
+                img: reader.result
+                }
+                $.ajax({
+                    type: "post",
+                    url: "/admin_panel/busines/add",
+                    data: JSON.stringify(data),
+                    dataType: "text",
+                    contentType: "application/json",
+                    success: function (response) {
+                        alert(response);
+                        window.location.href = '/admin_panel/busines/list'
+                    }
+                });
+            }
+            
+
+            
+        })
+
+
+        
+
+    </script>
+</body>
+</html>

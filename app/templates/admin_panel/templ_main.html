@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <style>
+        .box {
+            width: 100%;
+            text-align: center;
+        }
+
+        .box2 {
+            width: 70%;
+            background-color: rgb(235, 235, 235);
+            margin-top: 20px;
+            margin-left: 20px;
+        }
+
+        a {
+            display: block;
+            margin-top: 10px;
+            font-size: 30px;
+            text-decoration: none;
+            color: rgb(31, 128, 255);
+
+        }
+
+        a:hover {
+            font-weight: bold;
+            text-decoration: underline
+
+        }
+
+    </style>
+    <h1 style="width: 100%; text-align: center;">Изменения текстов на главной странице</h1>
+    <a href="/admin_panel">Вернуться в меню админки</a>
+
+    <div>
+
+            <div><label></label></div>
+
+            <form action="/admin_panel/templ_main" method="post">
+
+                <div>
+                    <label>Первый заголовок</label>
+                    <input style="margin: 10px;" name="label-1" type="text" value="{{ data.label1 }}">
+                </div>
+                
+                <div>
+                    <label style="display: block;">HTML-header</label>
+                    <textarea style="margin: 10px; display: block; width: 300px; height: 150px;" name="html_header" type="text">{{ data.html_header|safe }}</textarea>
+                    
+                </div>
+
+                <div>
+                    <label style="display: block;">Заголовок зоны покрытия</label>
+                    <input style="margin: 10px;" name="label-2" type="text" value="{{ data.label2 }}">
+                    
+                </div>
+
+                <div>
+                    <label>HTML-код зоны покрытия (высота карты должна быть 400px)</label>
+                    <textarea style="margin: 10px; display: block; width: 300px; height: 150px;" name="html_zone" type="text">{{ data.html_zone|safe }} </textarea>
+                    
+                </div>
+
+                
+                <input type="submit">
+                <hr>
+            </form>
+
+            
+    </div>
+    
+        
+</body>
+</html>
