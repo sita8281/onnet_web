@@ -1,0 +1,36 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="other-content">
+    <!--Форма заявки на подключение-->
+    <div class="statement-connect">
+        <div class="form-container">
+            <div class="form-content">
+                <div class="form-label-contain">
+                    <span class="form-label">Заявка на подключение</span>
+                    <span class="form-sub-label">Заявка будет рассмотрена в ближайшее время</span>
+                </div>
+                <form action="/connect_statement" method="post">
+                    <input class="inp-style" name="area" type="text" placeholder="Населённый пункт / район">
+                    <input class="inp-style" name="address" type="text" placeholder="Улица, дом, квартира..">
+                    <input class="inp-style" name="name" type="text" placeholder="Ваше имя">
+                    <input class="inp-style" name="email" type="email" placeholder="E-mail">
+                    <input class="inp-style" name="phone" type="tel" placeholder="Телефон">
+                    <input class="inp-style" name="info" type="text" placeholder="Доп. информация">
+                    <button class="btn-style">Оформить заявку</button>
+                </form>
+            </div>
+            
+        </div>
+        <div class="img-container">
+            <img src="/static/images/internet_connect.png">
+        </div>
+    </div>
+</div>
+
+
+
+
+{% endblock content %}

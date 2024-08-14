@@ -1,0 +1,541 @@
+
+ 
+
+
+.main-content {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Стили для банеров  */
+
+.baners {
+    overflow: hidden;
+    border-radius: 25px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.baners-box {
+    position: relative;
+    height: 400px;
+}
+
+.baner-img {
+    width: 1200px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    border-radius: 25px;
+    z-index: 1;
+}
+
+#baner-1 {
+    display: block;
+}
+
+.connection-label {
+    width: 100%;
+}
+
+.connection-label a {
+    font-size: 36px;
+    font-weight: bold;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 50%;
+    text-align: center;
+    text-decoration: none;
+    text-decoration-thickness: 2px;
+    color: black;
+    transition: 0.4s;
+
+}
+
+.connection-label a:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    color: rgb(17, 101, 255);
+    transition: 0.4s;
+
+}
+
+.connection-objects {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.conn-unit {
+    background-color: white;
+    width: 40%;
+    height: 350px;
+    margin: 20px;
+    border-radius: 25px;
+    box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+}
+
+.conn-label {
+    height: 50px;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.conn-label span {
+    display: block;
+    font-weight: bold;
+    font-size: 28px;
+    width: 100%;
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+
+}
+
+.conn-content {
+    height: 190px;
+}
+
+.conn-content img {
+    width: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-top: 20px;
+}
+
+.conn-text {
+    height: 50px;
+
+}
+
+.conn-text a {
+    display: block;
+    text-decoration: none;
+    background-color: #229fff;
+    width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 50px;
+    color: white;
+    text-align: center;
+    line-height: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 25px;
+    border: 1px solid #229fff;
+    transition: 0.2s;
+}
+
+.conn-text a:hover {
+    background-color: white;
+    height: 50px;
+    color: #229fff;
+    transition: 0.2s;
+}
+
+.news-container {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.news-label-box {
+    margin: 20px;
+}
+
+.news-label {
+    font-size: 35px;
+}
+
+.news-list-box {
+    height: 300px;
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.new-block {
+    width: 33%;
+    margin: 10px;
+}
+
+.new-block-date {
+    font-size: 16px;
+    display: block;
+}
+
+.new-block-label {
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+
+}
+
+.new-middle-content {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    margin: 10px;
+}
+
+.new-block-img {
+    width: 150px;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+.new-block-info {
+    font-size: 15px;
+    -webkit-line-clamp: 8; /* Число отображаемых строк */
+    display: -webkit-box; /* Включаем флексбоксы */
+    -webkit-box-orient: vertical; /* Вертикальная ориентация */
+    overflow: hidden; /* Обрезаем всё за пределами блока */
+    max-height: 140px;
+}
+
+.new-block-button {
+    display: block;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 25px;
+    height: 40px;
+    width: 150px;
+    text-decoration: none;
+    border: 1px solid;
+    color: black;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: 0.2s;
+}
+
+.new-block-button:hover {
+    background-color: black;
+    color: rgb(255, 255, 255);
+    transition: 0.2s;
+
+}
+
+
+
+@media (max-width: 1250px) {
+    .main-content {
+    }
+    
+    /* Стили для банеров  */
+    
+    .baners {
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+    
+    .baners-box {
+    }
+    
+    .baner-img {
+        width: 100%;
+    }
+    
+    #baner-1 {
+    }
+    
+    .connection-label {
+    }
+    
+    .connection-label a {
+        width: 95%;
+        font-size: 30px;
+    
+    }
+    
+    .connection-objects {
+    }
+    
+    .conn-unit {
+    }
+    
+    .conn-label {
+    }
+    
+    .conn-label span {
+    
+    }
+    
+    .conn-content {
+    }
+    
+    .conn-content img {
+    }
+    
+    .conn-text {
+    
+    }
+    
+    .conn-text a {
+    }
+    
+    .conn-text a:hover {
+    }
+    .news-container {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    
+    .news-label-box {
+        margin: 20px;
+    }
+    
+    .news-label {
+        font-size: 35px;
+    }
+    
+    .news-list-box {
+        height: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .new-block {
+        width: 350px;
+        margin: 10px;
+    }
+    
+    .new-block-date {
+        font-size: 16px;
+        display: block;
+    }
+    
+    .new-block-label {
+        display: block;
+        font-size: 16px;
+        font-weight: bold;
+        margin-top: 10px;
+    
+    }
+    
+    .new-middle-content {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        margin: 10px;
+    }
+    
+    .new-block-img {
+        width: 150px;
+        margin-right: 10px;
+        border-radius: 5px;
+    }
+    
+    .new-block-info {
+        font-size: 15px;
+        -webkit-line-clamp: 8; /* Число отображаемых строк */
+        display: -webkit-box; /* Включаем флексбоксы */
+        -webkit-box-orient: vertical; /* Вертикальная ориентация */
+        overflow: hidden; /* Обрезаем всё за пределами блока */
+        max-height: 140px;
+    }
+    
+    .new-block-button {
+        display: block;
+        text-align: center;
+        line-height: 40px;
+        border-radius: 25px;
+        height: 40px;
+        width: 150px;
+        text-decoration: none;
+        border: 1px solid;
+        color: black;
+        font-weight: bold;
+        margin-top: 20px;
+        transition: 0.2s;
+    }
+    
+    .new-block-button:hover {
+        background-color: black;
+        color: rgb(255, 255, 255);
+        transition: 0.2s;
+    
+    }
+}
+
+@media (max-width: 950px) {
+    .main-content {
+    }
+    
+    /* Стили для банеров  */
+    
+    .baners {
+    }
+    
+    .baners-box {
+        height: 300px;
+    }
+    
+    .baner-img {
+    }
+    
+    #baner-1 {
+    }
+    
+    .connection-label {
+    }
+    
+    .connection-label span {
+        font-size: 30px;
+    
+    }
+
+    .conn-int-box {
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+    }
+    
+    .connection-objects {
+        display: block;
+        width: 350px;
+    }
+    
+    .conn-unit {
+        width: 350px;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    
+    .conn-label {
+    }
+    
+    .conn-label span {
+        font-size: 22px;
+    
+    }
+    
+    .conn-content {
+    }
+    
+    .conn-content img {
+
+    }
+    
+    .conn-text {
+    
+    }
+    
+    .conn-text a {
+    }
+    
+    .conn-text a:hover {
+    }
+
+
+    .news-container {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    
+    .news-label-box {
+        margin: 20px;
+    }
+    
+    .news-label {
+        font-size: 35px;
+    }
+    
+    .news-list-box {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .new-block {
+        width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .new-block-date {
+        font-size: 16px;
+        display: block;
+    }
+    
+    .new-block-label {
+        display: block;
+        font-size: 14px;
+        font-weight: bold;
+        margin-top: 10px;
+    
+    }
+    
+    .new-middle-content {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        margin: 10px;
+    }
+    
+    .new-block-img {
+        width: 150px;
+        margin-right: 10px;
+        border-radius: 5px;
+    }
+    
+    .new-block-info {
+        font-size: 13px;
+        -webkit-line-clamp: 8; /* Число отображаемых строк */
+        display: -webkit-box; /* Включаем флексбоксы */
+        -webkit-box-orient: vertical; /* Вертикальная ориентация */
+        overflow: hidden; /* Обрезаем всё за пределами блока */
+        max-height: 140px;
+    }
+    
+    .new-block-button {
+        display: block;
+        text-align: center;
+        line-height: 40px;
+        border-radius: 25px;
+        height: 40px;
+        width: 150px;
+        text-decoration: none;
+        border: 1px solid;
+        color: black;
+        font-weight: bold;
+        margin-top: 20px;
+        transition: 0.2s;
+    }
+    
+    .new-block-button:hover {
+        background-color: black;
+        color: rgb(255, 255, 255);
+        transition: 0.2s;
+    
+    }
+}
+
+@media (max-width: 750px) {
+    .baners-box {
+        height: 250px;
+    }
+}
+
+@media (max-width: 600px) {
+    .baners-box {
+        height: 200px;
+    }
+}
+
+@media (max-width: 450px) {
+    .baners-box {
+        height: 130px;
+    }
+}

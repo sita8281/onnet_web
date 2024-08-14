@@ -1,0 +1,72 @@
+
+<!--Шапка сайта-->
+<div class="nav-main">
+    <div class="nav-content">
+        <a class="burger-menu" href="">
+            <img src="/static/images/burger.svg" alt="">
+        </a>
+        <div class="nav-logo">
+            <img src="/static/images/logo.png" class="nav-img-logo">
+        </div>
+        <div class="nav-links">
+            <a href="#" class="nav-a internet-kv">В квартиру</a>
+            <a href="" class="nav-a">В частный дом</a>
+            <a href="" class="nav-a">Для бизнеса</a>
+            <a href="" class="nav-a">Информация</a>
+        </div>
+        
+        <div class="nav-links-2">
+            <div class="number-phone">
+                <a href="" class="messenger"><img src="/static/images/telegram.svg" ></a>
+                <a href="" class="messenger"><img src="/static/images/whatsapp.svg" ></a>
+                <img src="/static/images/phone.svg" class="phone-icon">
+                <a class="phone-number" href="tel:+79001114455">+7 (999) 888-77-55</a>
+            </div>
+            <div class="lk-connect">
+                <a class="connect-link connect-link-state" href="/connect">
+                    <img src="/static/images/connect.svg" class="connect-svg">
+                    Подключиться
+                </a>
+                <div class="lk-container">
+                    <img src="/static/images/user.svg" class="user-svg">
+                    <a href="">Личный кабинет</a>
+                </div>
+                
+            </div>
+        </div>
+            
+    </div>
+</div>
+<!--Заглушка для сдвига контента под шапкой-->
+<div class="pass-nav"></div>
+<!--Мобильное меню-->
+<script>
+    $(document).ready(function(){
+        $('.burger-menu').click(function(){
+            $('.mobile-menu').slideToggle(400);      
+            return false;
+        });
+    });
+    //скрыть мобильное меню, если оно развернуто при большом экране
+    $(window).resize(function(e) {
+        if ($(window).width() > 1100) {
+            $('.mobile-menu').css('display', 'none')
+        }
+    })
+</script>
+<div class="mobile-menu">
+    <a class="connect-link" href="/connect">
+        <img src="/static/images/connect.svg" class="connect-svg">
+        Подключиться
+    </a>
+    <a href="#" class="nav-a internet-kv">В квартиру</a>
+    <a href="" class="nav-a">В частный дом</a>
+    <a href="" class="nav-a">Для бизнеса</a>
+    <a href="" class="nav-a">Информация</a>
+    <div class="messengers-box" >
+        <a href=""><img src="/static/images/telegram.svg" style="width: 40px;"></a>
+        <a href=""><img src="/static/images/whatsapp.svg" style="width: 40px;margin-left: 20px;"></a>
+    </div>
+</div>
+<div class="other-content">
+</div>

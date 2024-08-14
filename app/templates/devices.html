@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<link rel="stylesheet" href="/static/css/devices.css">
+<script src="/static/js/modals.js"></script>
+
+<div class="other-content">
+    <div class="container-connect">
+        <div class="connect-baner blue-back">
+            <div class="baner-info">
+                <div class="text-box">
+                    <span class="baner-label white-font">Оборудование</span>
+                    <span class="baner-address white-font">Устройства имеющиеся у нас в наличии</span>
+                    <a class="connect-button" href="/connect">Оставить заявку на подключение</a>
+                </div>
+            </div>
+            <div class="div-router">
+                <img src="/static/images/router.png" alt="">
+            </div>
+        </div>
+
+        {% if url_to_internet %}
+        <div class="connect-urls">
+            <div class="connect-urls-box">
+                <a class="connect-url" href="{{ url_to_internet }}">
+                    <img src="/static/images/back.svg">
+                    Вернуться назад
+                </a>
+            </div>
+        </div>
+        {% endif %}
+        
+
+        <div class="connect-info">
+            <div class="connect-info-box">
+                <span class="tarif-label">Список оборудования</span>
+            </div>
+
+        </div>
+
+        <div class="devices-box">
+            {% for device in lst%}
+            <div class="device-unit">
+                <div class="device-img">
+                    <img src="/img_device/{{ device.id }}">
+                </div>
+                <div class="device-price">
+                    <label>Стоимость</label>
+                    <span>{{ device.price }}</span>
+                </div>
+                <div class="device-data">
+                    <span>{{ device.name}}</span>
+                    <label>{{ device.info }}</label>
+                </div>
+                <div class="device-params">
+                    <a class="params-button" href="javascript:showAjaxModal('Характеристики', '/ajax/devices_list', '{{ device.id }}')">
+                        Характеристики
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+    </div>
+
+
+</div>
+
+
+
+{% endblock content %}

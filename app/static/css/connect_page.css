@@ -1,0 +1,704 @@
+
+.container-connect {
+    border-radius: 25px;
+    overflow: hidden;
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    background-color: white;
+}
+
+.connect-baner {
+    background-color: #CEE800;
+    height: 400px;
+    display: flex;
+    
+}
+
+.baner-info {
+    width: 60%;
+}
+
+.text-box {
+    margin-top: 60px;
+    margin-left: 50px;
+}
+
+.baner-label {
+    display: block;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.baner-address {
+    display: block;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.check-label-box {
+    margin-top: 30px;
+}
+
+.check-label {
+    display: flex;
+    margin-top: 2px;
+}
+
+.check-label img {
+    width: 30px;
+}
+
+.check-label span {
+    height: 30px;
+    line-height: 30px;
+    margin-left: 10px;
+    font-size: 15px;
+}
+
+.baner-picture {
+    width: 40%;
+    text-align: center;
+}
+
+.baner-picture-home {
+    width: 40%;
+    text-align: center;
+}
+
+.baner-picture-home img {
+    width: 400px;
+    margin-top: 50px;
+}
+
+.baner-picture img {
+    width: 300px;
+    margin-top: 50px;
+    
+}
+
+.connect-urls {
+    width: 100%;
+    height: 80px;
+    background-color: white;
+    border-bottom: 1px solid rgb(211, 211, 211);
+    display: flex;
+}
+
+.connect-url {
+    color: #229fff;
+    text-decoration: none;
+    width: 250px;
+    border: 1px solid #229fff;
+    height: 50px;
+    margin-top: 12px;
+    border-radius: 30px;
+    line-height: 50px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 15px;
+    margin-left: 10px;
+    margin-right: 10px;
+    transition: 0.2s;
+}
+
+.connect-url:hover {
+    background-color: #e4f3ff;
+    transition: 0.2s;
+}
+
+.connect-urls-box {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.connect-url img {
+    width: 30px;
+    vertical-align: middle;
+}
+
+.connect-info {
+    background-color: white;
+}
+
+.connect-info-box {
+    margin-left: 50px;
+    margin-top: 40px;
+}
+
+.tarif-label {
+    display: block;
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.tarif-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tarif-unit {
+    width: 300px;
+    height: 280px;
+    border: 2px solid #f0f0f0;
+    border-radius: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    overflow: hidden;
+}
+
+.act-box {
+    width: 100%;
+    height: 30px;
+}
+
+.act-box a {
+    display: block;
+    width: 100px;
+    height: 30px;
+    background-color: #229fff;
+    text-decoration: underline;
+    color: white;
+    font-weight: bold;
+    margin-right: 0px;
+    margin-left: auto;
+    border-bottom-left-radius: 20px;
+    text-align: center;
+    line-height: 30px;
+    font-size: 13px;
+}
+
+.tarif-name {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 5px;
+}
+
+.tarif-name span {
+    font-weight: bold;
+    display: flex;
+    font-size: 18px;
+    vertical-align: middle;
+}
+
+.tarif-name img {
+    width: 30px;
+    margin-right: 10px;
+}
+
+.tarif-info {
+    margin-left: 40px;
+    margin-top: 20px;
+}
+
+
+
+
+.tarif-info-1 {
+    display: block;
+    color: #afafaf;
+    font-size: 14px;
+}
+
+.tarif-info-2 {
+    margin-top: 5px;
+    display: block;
+    font-size: 18px;
+
+}
+
+.tarif-connect {
+    display: block;
+    width: 90%;
+    border: 1px solid;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 25px;
+    margin-top: 20px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.tarif-connect:hover {
+    color: white;
+    background-color: black;
+    transition: 0.2s;
+
+}
+
+.zone-label {
+    display: block;
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: 30px;
+    margin-left: 30px;
+    margin-bottom: 30px;
+}
+
+.zone-map {
+    margin: 30px;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+}
+
+.tarif-act-popup {
+    display: none;
+}
+
+.tarif-act-window {
+    height: 400px;
+}
+
+.tarif-act-info-box {
+    margin: 20px;
+}
+
+.tarif-info-text {
+    margin: 50px;
+}
+
+.tarif-info-text textarea {
+    width: 100%;
+    resize: none;
+    border: none;
+    overflow: hidden;
+    font-size: 22px;
+    outline: none;
+}
+
+.popup-window-act {
+    top: 0;
+    left: 0;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.400);
+    z-index: 999;
+    display: none;
+}
+
+.window-act {
+    border-radius: 20px;
+    background-color: white;
+    min-width: 360px;
+    position: fixed;
+    height: 60%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+}
+
+.close-window-btn-act {
+    background-color: rgb(233, 233, 233);
+    border-radius: 10px;
+    width: 50px;
+    height: 50px;
+    margin-right: 0px;
+    margin-left: auto;
+}
+
+.close-window-btn-act:hover {
+    background-color: rgb(201, 201, 201);
+    cursor: pointer;
+}
+
+.close-window-btn-act img {
+    width: 50px;
+}
+
+.baner-img-business {
+    width: 95%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+}
+
+.info-busines {
+    display: block;
+    font-size: 20px;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 10px;
+
+}
+
+@media (max-width: 1250px) {
+    .container-connect {
+        width: 900px;
+    }
+
+}
+
+
+
+@media (max-width: 950px) {
+    
+    .container-connect {
+        border-radius: 25px;
+        overflow: hidden;
+        width: 95%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 20px;
+        margin-bottom: 50px;
+        background-color: white;
+    }
+
+    .connect-baner {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        
+    }
+
+    .baner-info {
+        width: 100%;
+    }
+
+    .text-box {
+        text-align: center;
+        display: block;
+        margin-left: 5px;
+    }
+
+    .baner-label {
+        display: block;
+        font-size: 30px;
+        font-weight: bold;
+    }
+
+    .baner-address {
+        display: block;
+        font-size: 20px;
+        margin-top: 20px;
+    }
+
+    .check-label-box {
+        margin-top: 30px;
+        width: 250px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .check-label {
+        width: 100%;
+        display: flex;
+        margin-top: 2px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .check-label img {
+        width: 30px;
+    }
+
+    .check-label span {
+        height: 30px;
+        line-height: 30px;
+        margin-left: 10px;
+        font-size: 13px;
+    }
+
+    .baner-picture {
+        width: 100%;
+        text-align: center;
+    }
+
+    .baner-picture img {
+        width: 200px;
+        margin-top: 50px;
+        
+    }
+
+    .baner-picture-home {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .baner-picture-home img {
+        width: 300px;
+        margin-top: 50px;
+    }
+    
+
+    .connect-urls {
+        width: 100%;
+        height: 100%;
+        background-color: white;
+        border-bottom: 1px solid rgb(211, 211, 211);
+        display: flex;
+    }
+
+    .connect-url {
+        color: #229fff;
+        text-decoration: none;
+        width: 250px;
+        border: 1px solid #229fff;
+        height: 50px;
+        margin-top: 12px;
+        border-radius: 30px;
+        line-height: 50px;
+        text-align: center;
+        font-weight: bold;
+        font-size: 15px;
+        margin-left: 10px;
+        margin-right: 10px;
+        transition: 0.2s;
+    }
+
+    .connect-url:hover {
+        background-color: #e4f3ff;
+        transition: 0.2s;
+    }
+
+    .connect-urls-box {
+        display: flex;
+        flex-direction: column;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 20px;
+    }
+
+    .connect-url img {
+        width: 30px;
+        vertical-align: middle;
+    }
+
+    .connect-info {
+        background-color: white;
+    }
+
+    .connect-info-box {
+        margin-left: 20px;
+        margin-top: 10px;
+    }
+
+    .tarif-label {
+        display: block;
+        font-size: 25px;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    .tarif-info-text {
+        height: 300px;
+    }
+
+    .tarif-container {
+        display: flex;
+        flex-direction: column;
+        width: 95%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .tarif-unit {
+        width: 300px;
+        height: 280px;
+        border: 2px solid #f0f0f0;
+        border-radius: 20px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        overflow: hidden;
+    }
+
+    .act-box {
+        width: 100%;
+        height: 30px;
+    }
+
+    .act-box a {
+        display: block;
+        width: 100px;
+        height: 30px;
+        background-color: #229fff;
+        text-decoration: underline;
+        color: white;
+        font-weight: bold;
+        margin-right: 0px;
+        margin-left: auto;
+        border-bottom-left-radius: 20px;
+        text-align: center;
+        line-height: 30px;
+        font-size: 13px;
+    }
+
+    .tarif-name {
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-top: 5px;
+    }
+
+    .tarif-name span {
+        font-weight: bold;
+        display: flex;
+        font-size: 18px;
+        vertical-align: middle;
+    }
+
+    .tarif-name img {
+        width: 30px;
+        margin-right: 10px;
+    }
+
+    .tarif-info {
+        margin-left: 40px;
+        margin-top: 20px;
+    }
+
+
+    .tarif-info-1 {
+        display: block;
+        color: #afafaf;
+        font-size: 14px;
+    }
+
+    .tarif-info-2 {
+        margin-top: 5px;
+        display: block;
+        font-size: 18px;
+
+    }
+
+    .tarif-connect {
+        display: block;
+        width: 90%;
+        border: 1px solid;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        height: 40px;
+        line-height: 40px;
+        border-radius: 25px;
+        margin-top: 20px;
+        text-decoration: none;
+        color: black;
+        font-weight: bold;
+        transition: 0.2s;
+    }
+
+    .tarif-connect:hover {
+        color: white;
+        background-color: black;
+        transition: 0.2s;
+
+    }
+
+    .zone-label {
+        display: block;
+        font-size: 22px;
+        font-weight: bold;
+        margin-top: 30px;
+        margin-left: 30px;
+        margin-bottom: 30px;
+    }
+
+    .zone-map {
+        margin: 30px;
+        border-radius: 25px;
+        overflow: hidden;
+        box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    }
+
+    .tarif-act-popup {
+        display: none;
+    }
+
+    .tarif-act-window {
+        height: 400px;
+    }
+
+    .tarif-act-info-box {
+        margin: 20px;
+    }
+
+    .tarif-info-text {
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-top: 40px;
+    }
+
+    .tarif-info-text textarea {
+        width: 100%;
+        height: 200px;
+        resize: none;
+        border: none;
+        overflow: hidden;
+        font-size: 16px;
+        outline: none;
+    }
+
+    .popup-window-act {
+        top: 0;
+        left: 0;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.400);
+        z-index: 999;
+        display: none;
+    }
+
+    .window-act {
+        border-radius: 20px;
+        background-color: white;
+        min-width: 360px;
+        position: fixed;
+        height: 40%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+    }
+
+    .close-window-btn-act {
+        background-color: rgb(233, 233, 233);
+        border-radius: 10px;
+        width: 40px;
+        height: 40px;
+        margin-right: 0px;
+        margin-left: auto;
+    }
+
+    .close-window-btn-act:hover {
+        background-color: rgb(201, 201, 201);
+        cursor: pointer;
+    }
+
+    .close-window-btn-act img {
+        width: 40px;
+    }
+    .baner-img-business {
+        width: 100%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 5px;
+    }
+    .info-busines {
+        font-size: 13px;
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-bottom: 30px;
+    
+    }
+}

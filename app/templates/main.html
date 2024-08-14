@@ -1,0 +1,148 @@
+
+{% extends "base.html" %}
+
+{% block meta_tag %}
+    {% if data.html_header %}
+        {{ data.html_header|safe }}
+    {% endif %}
+    <title>Заголовок</title>
+{% endblock %}
+
+
+{% block content %}
+
+<link rel="stylesheet" href="/static/css/main.css">
+<script src="/static/js/modals.js"></script>
+
+<div class="main-content">
+    <div class="baners">
+        <div class="baners-box">
+            {% for iid in baners %}
+            <img class="baner-img" id="baner-{{ iid[0] }}" src="/img_baner/{{ iid[0] }}">
+            {% endfor %}
+        </div>
+        
+        <script>
+            let ordBaner = 1;
+            let countBaners = document.getElementsByClassName('baner-img')
+            // автопролистывание банеров
+            $(document).ready(function() {
+                setTimeout(switchBaner, 3000)
+            })
+
+            function switchBaner() {
+                //console.log(ordBaner);
+                
+                if (ordBaner == countBaners.length) {
+                    ordBaner = 1;
+                    showBaner();
+                    setTimeout(switchBaner, 5000);
+                    return;
+                }
+                ordBaner++;
+                showBaner();
+                setTimeout(switchBaner, 5000);
+            }
+
+            function showBaner() {
+                for (let i = 0; i < countBaners.length; i++) {
+                    if (i+1 == ordBaner) {
+                        $('#' + countBaners[i].id).fadeIn(1000);
+                    } else {
+                        $('#' + countBaners[i].id).fadeOut(1000);
+                    }
+                    
+                }
+
+            }
+
+        </script>
+    </div>
+
+    <div class="connection-box">
+        <div class="connection-label">
+            <a href="/connect">{{ data.label1 }}</a>
+        </div>
+
+        <div class="conn-int-box">
+            <div class="connection-objects">
+                <div class="conn-unit">
+                    <div class="conn-label">
+                        <span>В квартиру</span>
+                    </div>
+                    <div class="conn-content">
+                        <img src="/static/images/kv.svg">
+                    </div>
+                    <div class="conn-text">
+                        <a href="javascript:openPopup(label='Выберите район',url='/kv/list')">Подробнее</a>
+                    </div>
+                    
+                </div>
+    
+                <div class="conn-unit">
+                    <div class="conn-label">
+                        <span>В частный дом</span>
+                    </div>
+                    <div class="conn-content">
+                        <img src="/static/images/house.svg">
+                    </div>
+                    <div class="conn-text">
+                        <a href="javascript:openPopup(label='Выберите район',url='/home/list')">Подробнее</a>
+                    </div>
+                </div>
+    
+                <div class="conn-unit">
+                    <div class="conn-label">
+                        <span>Для бизнеса</span>
+                    </div>
+                    <div class="conn-content">
+                        <img src="/static/images/busines.svg">
+                    </div>
+                    <div class="conn-text">
+                        <a href="javascript:openPopup(label='Выберите район', url='/busines/list')">Подробнее</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="news-container">
+            <div class="news-label-box">
+                <label class="news-label">Новости</label>
+            </div>
+            <div class="news-list-box">
+                {% for new in news %}
+                <div class="new-block">
+                    <span class="new-block-date">{{ new.date }}</span>
+                    <span class="new-block-label">{{ new.label }}</span>
+                    <div class="new-middle-content">
+                        <img class="new-block-img" src="/img_news/{{ new.id }}">
+                        <span class="new-block-info">{{ new.info|replace('\n', '<br>'|safe) }}</span>
+                    </div>
+                    <a class="new-block-button" href="javascript:showSimpleModal('Подробности', '{{ new.info|replace('\n', '<br>'|safe) }}')">Подробнее</a>
+                </div>
+                {% endfor%}
+            </div>
+        </div>
+
+        <div class="container-connect">
+            <div>
+                <span class="zone-label">{{ data.label2 }}</span>
+            </div>
+            <div class="zone-map" style="height: 400px;">
+                {{ data.html_zone|safe|replace('\n', '<br>') }}
+            </div>
+            
+            
+        </div>
+
+        
+
+    </div>
+
+    
+</div>
+
+
+
+{% endblock content %}

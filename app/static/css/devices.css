@@ -1,0 +1,189 @@
+.div-router {
+
+}
+
+.div-router img {
+    width: 400px;
+}
+
+.blue-back {
+    background-color: #229FFF
+}
+
+.white-font {
+    color: white;
+}
+
+.connect-button {
+    margin-top: 100px;
+    text-align: center;
+    width: 400px;
+    display: block;
+    text-decoration: none;
+    height: 50px;
+    line-height: 50px;
+    background-color: #CEE800;
+    color: black;
+    border: 1px solid #CEE800;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: 0.2s;
+
+}
+
+.connect-button:hover {
+    background-color: #ffffff;
+    color: black;
+    transition: 0.2s;
+}
+
+.devices-box {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.device-unit {
+    width: 300px;
+    margin: 10px;
+    overflow: hidden;
+    border-radius: 25px;
+    border: 2px solid #f0f0f0;
+}
+
+.device-img img {
+    height: 200px;;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+}
+
+.device-price {
+    background-color: #229FFF;
+    height: 50px;
+    padding: 10px
+}
+
+.device-price label {
+    display: block;
+    color: white;
+}
+
+.device-price span {
+    display: block;
+    color: white;
+    font-size: 22px;
+
+}
+
+.params-button {
+    text-align: center;
+    width: 90%;
+    display: block;
+    text-decoration: none;
+    height: 50px;
+    line-height: 50px;
+    background-color: white;
+    color: #229FFF;
+    border: 1px solid #229FFF;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: 0.2s;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+
+}
+
+.params-button:hover {
+    background-color: #229FFF;
+    color: rgb(255, 255, 255);
+    transition: 0.2s;
+}
+
+.device-data {
+    width: 90%;
+    height: 70px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+}
+
+.device-data span {
+    font-weight: bold;
+    font-size: 18px;
+    display: block;
+}
+
+.device-data label {
+    font-size: 15px;
+    display: block;
+    color: rgb(114, 114, 114);
+}
+
+
+
+
+@media (max-width: 1250px) {
+    .adv-row {
+        font-size: 16px;
+    }
+}
+
+
+@media (max-width: 1100px) {
+    .div-router img {
+        width: 280px;
+        margin-top: 50px;
+    }
+}
+
+@media (max-width: 950px) {
+    .div-router {
+        margin-top: 0px;
+        text-align: center;
+    }
+
+    .div-router img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .connect-button {
+        margin-top: 50px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 300px;
+    }
+    .white-font {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .adv-row {
+        display: block;
+        height: 100%;
+        line-height: 40px;
+    }
+
+    .adv-info {
+        display: block;
+    }
+    .adv-price {
+        display: block;
+        font-weight: bold;
+    }
+
+    .devices-box {
+        flex-direction: column;
+    }
+
+    .device-unit {
+        margin-left: auto;
+        margin-right: auto;
+
+    }
+}

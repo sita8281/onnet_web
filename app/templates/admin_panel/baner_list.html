@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <style>
+        .box {
+            width: 100%;
+            text-align: center;
+        }
+
+        .box2 {
+            width: 70%;
+            background-color: rgb(235, 235, 235);
+            margin-top: 20px;
+            margin-left: 20px;
+        }
+
+        a {
+            display: block;
+            margin-top: 10px;
+            font-size: 30px;
+            text-decoration: none;
+            color: rgb(31, 128, 255);
+
+        }
+
+        a:hover {
+            font-weight: bold;
+            text-decoration: underline
+
+        }
+
+    </style>
+    <h1 style="width: 100%; text-align: center;">Банерные картинки (на главной странице)</h1>
+    <h2 style="width: 100%; text-align: center;">Картинки должны быть строго одного размера!!!</h2>
+    <h2 style="width: 100%; text-align: center;">RGB код фона картинки: #f0f2f8</h2>
+    <a href="/admin_panel">Вернуться в меню админки</a>
+    <div style="border: 1px solid; width: 400px;">
+        <form method="post" enctype="multipart/form-data" action="/admin_panel/baner/add">
+            <input style="margin: 10px;" type="file" id="file" name="file" accept="image/*, video/*" />
+            <button style="margin: 10px;">Добавить</button>
+            
+        </form>
+        
+    </div>
+
+    <div>
+        {% for baner_id in lst %}
+            <img style="width: 600px; margin: 10px;" src="/admin_panel/baner/{{ baner_id[0] }}">
+            <a style="color: red;" href="/admin_panel/baner/del/{{ baner_id[0] }}">Удалить </a>
+            <hr>
+        {% endfor %}
+    </div>
+    
+        
+</body>
+</html>

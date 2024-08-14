@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <style>
+        .box {
+            width: 100%;
+            text-align: center;
+        }
+
+        .box2 {
+            width: 70%;
+            background-color: rgb(235, 235, 235);
+            margin-top: 20px;
+            margin-left: 20px;
+        }
+
+        a {
+            display: block;
+            margin-top: 10px;
+            font-size: 30px;
+            text-decoration: none;
+            color: rgb(31, 128, 255);
+
+        }
+
+        a:hover {
+            font-weight: bold;
+            text-decoration: underline
+
+        }
+
+    </style>
+    <h1 style="width: 100%; text-align: center;">Список оборудования</h1>
+    <h2 style="width: 100%; text-align: center;"></h2>
+    <a href="/admin_panel">Вернуться в меню админки</a>
+    <div style="border: 1px solid; width: 400px;">
+        <form method="post" enctype="multipart/form-data" action="/admin_panel/device/add">
+            <input style="margin: 10px;" type="file" id="file" name="file" accept="image/*" />
+            <div>
+                <label>Название роутера</label>
+                <input style="margin: 10px;" type="text" name="name">
+            </div>
+            <div>
+                <label>Цена</label>
+                <input style="margin: 10px;" type="text" name="price">
+            </div>
+            <div>
+                <label>Доп.инфа (можно не писать)</label>
+                <input style="margin: 10px;" type="text" name="info">
+            </div>
+            <div>
+                <label>Характиристики</label>
+                <textarea style="margin: 10px; height: 100px; display: block; width: 90%" name="params"></textarea>
+            </div>
+            
+            
+            <button style="margin: 10px;">Добавить</button>
+            
+        </form>
+        
+    </div>
+
+    <div>
+        {% for device in lst[::-1] %}
+            <h2 style="width: 400px;">{{ device.name }}</h2>
+            <div>
+                <label style="font-weight: bold;">Цена: </label>
+                <span style="width: 300px;">{{ device.price }}</span>
+            </div>
+
+            <div style="font-weight: bold;">Доп инфа: </div>
+            <div style="width: 300px;">{{ device.info }}</div>
+            <br>
+
+            <img style="width: 200px; margin: 10px;" src="/admin_panel/device/img/{{ device.id }}">
+            <br>
+            <div style="font-weight: bold;">Характиристики: </div>
+            <div style="width: 300px;">{{ device.params|safe }}</div>
+            <br>
+            
+            <a style="color: red;" href="/admin_panel/device/del/{{ device.id }}">Удалить </a>
+            <hr>
+        {% endfor %}
+    </div>
+    
+        
+</body>
+</html>

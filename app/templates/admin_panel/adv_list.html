@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <style>
+        .box {
+            width: 100%;
+            text-align: center;
+        }
+
+        .box2 {
+            width: 70%;
+            background-color: rgb(235, 235, 235);
+            margin-top: 20px;
+            margin-left: 20px;
+        }
+
+        a {
+            display: block;
+            margin-top: 10px;
+            font-size: 30px;
+            text-decoration: none;
+            color: rgb(31, 128, 255);
+
+        }
+
+        a:hover {
+            font-weight: bold;
+            text-decoration: underline
+
+        }
+
+    </style>
+    <h1 style="width: 100%; text-align: center;">Список доп.услуг</h1>
+    <a href="/admin_panel">Вернуться в меню админки</a>
+    <div style="border: 1px solid; width: 400px;">
+        <form action="/admin_panel/adv/add" method="post">
+            <input style="display: block; margin: 10px; height: 30px; width: 80%;" name="name" type="text" placeholder="Данные по услуге">
+            <input style="display: block; margin: 10px; height: 30px; width: 80%;" name="price" type="text" placeholder="Цена услуги">
+            <input style="display: block; margin: 10px; height: 30px; width: 80%;" type="submit">
+        </form>
+        
+    </div>
+
+    <div>
+        {% for adv in lst %}
+            <div style="border: 1px solid; margin: 20px; width: 600px;">
+                <div style="font-weight: bold;">Услуга</div><div>{{ adv.name }}</div>
+                <div style="font-weight: bold;">Цена</div><div>{{ adv.price }}</div>
+                <a style="color: red; font-size: 14px;" href="/admin_panel/adv/del/{{ adv.id }}">Удалить</a>
+            </div>
+        {% endfor %}
+    </div>
+    
+        
+</body>
+</html>

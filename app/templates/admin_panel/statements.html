@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <style>
+        .box {
+            width: 100%;
+            text-align: center;
+        }
+
+        .box2 {
+            width: 70%;
+            background-color: rgb(235, 235, 235);
+            margin-top: 20px;
+            margin-left: 20px;
+        }
+
+        a {
+            display: block;
+            margin-top: 10px;
+            font-size: 30px;
+            text-decoration: none;
+            color: rgb(31, 128, 255);
+
+        }
+
+        a:hover {
+            font-weight: bold;
+            text-decoration: underline
+
+        }
+
+    </style>
+    <h1 style="width: 100%; text-align: center;">Список заявок на подключение</h1>
+    
+    <a href="/admin_panel">Вернуться в меню админки</a>
+
+    <div style="margin-left: auto; margin-right: auto; width: 800px;">
+        {% for statement in lst %}
+            <div style="border: 1px solid; margin: 20px; text-align: center;">
+                <div style="margin: 10px;">
+                    <div>
+                        <label style="font-weight: bold;">Район:</label>
+                        <span>{{ statement.area }}</span>
+                    </div>
+                    <hr>
+                    <div>
+                        <label style="font-weight: bold;">Адрес:</label>
+                        <span>{{ statement.address }}</span>
+                    </div>
+                    <hr>
+                    <div>
+                        <label style="font-weight: bold;">Имя:</label>
+                        <span>{{ statement.name }}</span>
+                    </div>
+                    <hr>
+                    <div>
+                        <label style="font-weight: bold;">Эл.почта:</label>
+                        <span>{{ statement.email }}</span>
+                    </div>
+                    <hr>
+                    <div>
+                        <label style="font-weight: bold;">Телефон:</label>
+                        <span>{{ statement.phone }}</span>
+                    </div>
+                    <hr>
+                    <div>
+                        <label style="font-weight: bold;">Доп.информация:</label>
+                        <span>{{ statement.info }}</span>
+                    </div>
+                    <hr>
+                    <a style="color: red; font-size: 14px;" href="/admin_panel/statements/del/{{ statement.id }}">Удалить</a>
+                </div>
+                
+
+            </div>
+        {% endfor %}
+    </div>
+    
+        
+</body>
+</html>

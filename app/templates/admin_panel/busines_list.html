@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <style>
+        .box {
+            width: 100%;
+            text-align: center;
+        }
+
+        .box2 {
+            width: 70%;
+            background-color: rgb(235, 235, 235);
+            margin-top: 20px;
+            margin-left: 20px;
+        }
+
+        a {
+            display: block;
+            margin-top: 10px;
+            font-size: 30px;
+            text-decoration: none;
+            color: rgb(31, 128, 255);
+
+        }
+
+        a:hover {
+            font-weight: bold;
+            text-decoration: underline
+
+        }
+
+    </style>
+    <h1 style="width: 100%; text-align: center;">Список страниц для бизнеса</h1>
+    <a href="/admin_panel">Вернуться в меню админки</a>
+    <a href="{{ url_for('busines_add') }}">Добавить новую страницу</a>
+    <div class="box">
+        {% for busines in busines_list %}
+            <div class="box2">
+                <h1>{{busines.name}}</h1>
+
+                <a href="/busines/{{busines.base_url}}">/busines/{{busines.base_url}}</a>
+
+                <label>Html Header</label>
+                <div><textarea style="width: 500px; height: 130px;">{{ busines.header_html }}</textarea></div>
+
+                <label>Код метрики</label>
+                <div><textarea style="width: 500px; height: 130px;">{{ busines.metrica_html }}</textarea></div>
+
+                <label>Код карты</label>
+                <div><textarea style="width: 500px; height: 130px;">{{ busines.zone_html }}</textarea></div>
+
+                <div>
+                    <h3>{{ busines.label }}</h3>
+
+                </div>
+
+                <div><textarea style="width: 500px; height: 130px;">{{ busines.info }}</textarea></div>
+
+                <label>Банер</label>
+                <div><img style="border: 2px solid; margin: 10px; width: 400px;" src="img/{{ busines.id }}"></div>
+
+                <a style="color: brown;" href="/admin_panel/busines/del/{{ busines.id }}">Удалить страницу</a>
+                <a style="color: rgb(224, 146, 0);" href="/admin_panel/busines/update/{{ busines.id }}">Изменить страницу</a>
+                
+                
+            </div>
+        {% endfor %}
+    </div>
+        
+</body>
+</html>

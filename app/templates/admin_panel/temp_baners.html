@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <style>
+        .box {
+            width: 100%;
+            text-align: center;
+        }
+
+        .box2 {
+            width: 70%;
+            background-color: rgb(235, 235, 235);
+            margin-top: 20px;
+            margin-left: 20px;
+        }
+
+        a {
+            display: block;
+            margin-top: 10px;
+            font-size: 30px;
+            text-decoration: none;
+            color: rgb(31, 128, 255);
+
+        }
+
+        a:hover {
+            font-weight: bold;
+            text-decoration: underline
+
+        }
+
+    </style>
+    <h1 style="width: 100%; text-align: center;">Изменения текста на основных страницах</h1>
+    <a href="/admin_panel">Вернуться в меню админки</a>
+
+    <div>
+
+            <div><label></label></div>
+            
+            {% for data in lst %}
+
+            <form action="/admin_panel/temp_baners" method="post">
+                <h2>{{ data.name }}</h2>
+                <input type="text" style="display: none;" name="ident" value="{{ data.id }}">
+                <div>
+                    <label>Основное название:</label>
+                    <input style="margin: 10px;" name="label" type="text" value="{{ data.label }}">
+                </div>
+                <div>
+                    <label>Галочка 1:</label>
+                    <input style="margin: 10px;" name="check1" type="text" value="{{ data.check1 }}">
+                    
+                </div>
+                <div>
+                    <label>Галочка 2:</label>
+                    <input style="margin: 10px;" name="check2" type="text" value="{{ data.check2 }}">
+                    
+                </div>
+                <div>
+                    <label>Галочка 3:</label>
+                    <input style="margin: 10px;" name="check3" type="text" value="{{ data.check3 }}">
+                    
+                </div>
+                <div>
+                    <label>Галочка 4:</label>
+                    <input style="margin: 10px;" name="check4" type="text" value="{{ data.check4 }}">
+                    
+                </div>
+                <div>
+                    <label>Подписть тарифов:</label>
+                    <input style="margin: 10px;" name="label_tarif" type="text" value="{{ data.label_tarif }}">
+                    
+                </div>
+                <div>
+                    <label>Подпись зоны покрытия:</label>
+                    <input style="margin: 10px;" name="label_zone" type="text" value="{{ data.label_zone }}">
+                    
+                </div>
+                <input type="submit">
+                <hr>
+            </form>
+            
+
+            
+            {% endfor %}
+
+            
+    </div>
+    
+        
+</body>
+</html>

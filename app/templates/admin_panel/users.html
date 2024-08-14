@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список пользователей</title>
+</head>
+<body>
+    <form action="/admin_panel/add_user" method="post">
+        <input type="text" placeholder="Логин" autocomplete="off" name="username">
+        <input type="password" name="password">
+        <input type="submit">
+    </form>
+    <table>    
+        <thead>
+            <th>Id</th>
+            <th>Логин</th>
+            <th></th>
+        </thead>
+        <tbody>
+            {% for user in users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.name }}</td>
+                <td>
+                    <a href="/admin_panel/del_user/{{ user.id }}">DEL</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
